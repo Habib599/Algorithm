@@ -1,0 +1,1 @@
+{"name":"Local: second lastMerge Sort","url":"d:\\C\\Algorithm\\module 3.5\\second lastMerge Sort.cpp","tests":[{"id":1691045480052,"input":"2\n6\n12 1 35 10 34 1\n5\n10 10 10 10 10","output":"34\n-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C\\Algorithm\\module 3.5\\second lastMerge Sort.cpp","group":"local","local":true}

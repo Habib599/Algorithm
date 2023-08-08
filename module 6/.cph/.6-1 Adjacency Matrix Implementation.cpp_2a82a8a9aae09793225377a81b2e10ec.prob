@@ -1,0 +1,1 @@
+{"name":"Local: 6-1 Adjacency Matrix Implementation","url":"d:\\C\\Algorithm\\module 6\\6-1 Adjacency Matrix Implementation.cpp","tests":[{"id":1691374380642,"input":"4\n5\n1 2\n1 3\n2 4\n4 3\n3 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C\\Algorithm\\module 6\\6-1 Adjacency Matrix Implementation.cpp","group":"local","local":true}

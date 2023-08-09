@@ -7,7 +7,6 @@ vector<int> adj[N];
 void dfs(int u)
 {
     visited[u] = 1;
-    cout << "node "<< u << endl;
     for (int v : adj[u]) 
     {
         if (visited[v] == 0)
@@ -15,6 +14,7 @@ void dfs(int u)
             dfs(v);
         }
     }
+    cout << u <<" ";
 }
 int main() 
 {
@@ -25,7 +25,7 @@ int main()
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
-        // adj[v].push_back(u);
+        adj[v].push_back(u);
     }
     dfs(1);
     return 0;

@@ -44,20 +44,33 @@ int main()
     cin >> zaman;
 
     bfs(0);
-    if (zaman==0)
-        cout<<-1;
-        continue;
-    bool found = false;
-    for (int i = 0; i < n; i++)
+    if(zaman==0)
     {
-        if (level[i] == zaman)
-        {
-            found = true;
-            cout << i << " ";
-        }
+        cout<<"0"<<endl;
     }
 
-    if (!found) cout << "-1";
+    else
+    {
+        vector<int>v;
+        for (int i = 0; i <=N; i++)
+        {
+            if (level[i] == zaman)
+            {
+            v.push_back(i);
+            }
+        }
 
+        if(v.empty())
+        {
+            cout<<"-1"<<endl;
+        }
+        else
+        {
+            for(int val : v)
+            {
+                cout<<val<<" ";
+            }
+        }
+    }
     return 0;
 }

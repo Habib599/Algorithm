@@ -4,58 +4,45 @@ using namespace std;
 const int N = 1e5;
 vector<int> adj_list[N];
 bool visited[N];
+int cc=0;
 
-void dfs(int src)
+int dfs(int src)
 {
     visited[src]=true;
     for( int node: adj_list[src])
     {
         if(visited[node]) continue;
+        cc++;
         dfs(node);
     }
+    return cc;
 }
-
-void bfs(int src)
-{
-    queue<int> q;
-    q.push(src);
-    visited[src] = true;
-
-    while (!q.empty())
-    {
-        int head = q.front();
-        q.pop();
-        
-        for (int node : adj_list[head]) 
-        {
-            if (visited[node] == true)  continue;
-            
-            q.push(node);
-            visited[node] = true;
-        }
-    }
-
-}
-
 int main() 
 {
     int n, m;
     cin >> n >> m;
+    queue<int>q2;
+    vector<int>q3;
     for (int i = 0;i < m;i++)
     {
         int u, v;
         cin >> u >> v;
+        q2.push(u);
         adj_list[u].push_back(v);
         adj_list[v].push_back(u);
     }
-    
-    int cc=0;
-    for (int i = 1; i <=n; i++)
+    while(!q2.empty())
     {
-        if(visited[i]) continue;
-        bfs(i);
-        cc++;
+        int f=dfs(q2.front());
+        // if(f==0) continue;
+        q3.push_back(f);
+        q2.pop();
+        cc=0;
     }
-    cout<< "component: "<<cc<<endl;
+    sort(q3.begin(), q3.end());
+    for (int num : q3) 
+    {
+        cout << num << " ";
+    }
     return 0;
 }

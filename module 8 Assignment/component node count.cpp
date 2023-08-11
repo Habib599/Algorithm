@@ -1,48 +1,68 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-const int N = 1e5;
-vector<int> adj_list[N];
+const int N = 1e3+5;
+vector<int> adj[N];
 bool visited[N];
-int cc=0;
 
-int dfs(int src)
+int bfs(int s)
 {
-    visited[src]=true;
-    for( int node: adj_list[src])
+    queue<int> q;
+    q.push(s);
+    visited[s] = true;
+    int node = 0;
+
+    while(!q.empty())
     {
-        if(visited[node]) continue;
-        cc++;
-        dfs(node);
+        int x = q.front();
+        q.pop();
+        node++;
+
+        for(int v : adj[x])
+        {
+            if(!visited[v])
+            {
+                q.push(v);
+                visited[v] = true;
+            }
+        }
     }
-    return cc;
+
+    return node;
 }
-int main() 
+
+int main()
 {
     int n, m;
     cin >> n >> m;
-    queue<int>q2;
-    vector<int>q3;
-    for (int i = 0;i < m;i++)
+
+    for(int i = 0; i < m; i++)
     {
-        int u, v;
-        cin >> u >> v;
-        q2.push(u);
-        adj_list[u].push_back(v);
-        adj_list[v].push_back(u);
+        int a, b;
+        cin >> a >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
     }
-    while(!q2.empty())
+
+    vector<int> v;
+
+    for(int i = 0; i < N; i++)
     {
-        int f=dfs(q2.front());
-        // if(f==0) continue;
-        q3.push_back(f);
-        q2.pop();
-        cc=0;
+        if(!visited[i])
+        {
+            int cnode = bfs(i);
+            if(cnode > 1)
+            {
+                v.push_back(cnode);
+            }
+        }
     }
-    sort(q3.begin(), q3.end());
-    for (int num : q3) 
+
+    sort(v.begin(), v.end());
+
+    for(int cnode : v)
     {
-        cout << num << " ";
+        cout << cnode << " ";
     }
+
     return 0;
 }

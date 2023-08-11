@@ -4,18 +4,14 @@ using namespace std;
 const int N = 1e5;
 vector<int> adj_list[N];
 bool visited[N];
-bool visitedt[N];
 
-void dfs(int u)
+void dfs(int src)
 {
-    visitedt[u] = 1;
-    cout << u <<" ";
-    for (int v : adj_list[u]) 
+    visited[src]=true;
+    for( int node: adj_list[src])
     {
-        if (visitedt[v] == 0)
-        {
-            dfs(v);
-        }
+        if(visited[node]) continue;
+        dfs(node);
     }
 }
 
@@ -52,24 +48,14 @@ int main()
         adj_list[u].push_back(v);
         adj_list[v].push_back(u);
     }
-    queue<int>q;
+    
     int cc=0;
     for (int i = 1; i <=n; i++)
     {
         if(visited[i]) continue;
-        q.push(i);
         bfs(i);
         cc++;
     }
-    cout<<cc<<endl;
-    int j=1;
-    while (!q.empty()) 
-    {
-        cout <<"Component "<< j<<" : ";
-        dfs(q.front());
-        cout<<endl;
-        j++;
-        q.pop();
-    }
+    cout<< "component: "<<cc<<endl;
     return 0;
 }

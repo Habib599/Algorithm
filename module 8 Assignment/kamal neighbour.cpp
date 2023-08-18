@@ -1,9 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e5 + 5;
+const int N = 1e5+5;
 vector<int> adj_list[N];
 bool visited[N];
+int level[N];
+
+void bfs(int src)
+{
+    queue<int> q;
+    q.push(src);
+    visited[src] = true;
+    level[src] = 0;
+
+    while (!q.empty())
+    {
+        int head = q.front();
+        q.pop();
+        for (int node : adj_list[head]) 
+        {
+            if (visited[node] == true) continue;
+            
+            q.push(node);
+            visited[node] = true;
+            level[node] = level[head] + 1;
+        }
+    }
+}
 
 int main() 
 {
@@ -14,18 +37,25 @@ int main()
         int u, v;
         cin >> u >> v;
         adj_list[u].push_back(v);
+        adj_list[v].push_back(u);
     }
 
+ 
+       
     int root;
     cin >> root;
 
-    int found = 0;
-    for (int node : adj_list[root])
+    bfs(root);
+    int found=0;
+    for (int i = 0; i < n; i++)
     {
-        found++; // Increment for each directly connected house
+        if (level[i] == 1)
+        {
+            found++;
+        }
     }
 
-    cout << found << endl;
+    cout << found<< endl;
 
     return 0;
 }

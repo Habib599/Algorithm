@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e5;
+const int N = 1e5+5;
 vector<int> adj_list[N];
 bool visited[N];
 int level[N];
@@ -49,12 +49,12 @@ int main()
 
         //reset array
         memset(visited, false, sizeof(visited));
-        fill(level, level + n, INT_MAX);  // Use 'n' instead of 'N'
+        memset(level, -1, sizeof(level));
 
-    bfs(root);
+        bfs(root);
 
-    cout << (level[search] == INT_MAX ? -1 : level[search]) << endl;
-}
+        cout << level[search] << endl;
+    }
 
     return 0;
 }

@@ -48,16 +48,19 @@ int main()
         int u, v,w ;
         cin >> u >> v>>w;
         adj_list[u].push_back({v,w});
-        //adj_list[v].push_back({u,w});
+        adj_list[v].push_back({u,w});
     }
-    dijkstra(1);
+    int s,d;
+    cin>>s>>d;
+    dijkstra(s);
     
-    for (int i = 1; i <=n; i++)
-    {
-        cout<<"distance of node "<<i<<": ";
+    // for (int i = 1; i <=n; i++)
+    // {
+    //     cout<<"distance of node "<<i<<": ";
 
-        cout<< dist[i]<< endl;
-    }
+    //     cout<< dist[i]<< endl;
+    // }
+    cout<< dist[d]<< endl;
 
     return 0;
 }

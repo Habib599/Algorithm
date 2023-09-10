@@ -31,7 +31,7 @@ void dijkstra(int src)
 
             if(visited[v]) continue;
 
-            if(dist[v]>dist[u]+w)
+            if(dist[u]+w < dist[v])
             {
                 dist[v]=dist[u]+w;
                 pq.push({dist[v],v});

@@ -28,6 +28,16 @@ int main()
             }
         }
     }
+    // table visiable
+    for (int i = 0; i <=n; i++)
+    {
+        for (int j = 0; j <=m; j++)
+        {
+            cout<<dp[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    
     int mx = 0;
     int ci, cj;
     for (int i = 0; i <= n; i++)
@@ -42,12 +52,12 @@ int main()
             }
         }
     }
-    string ans;
+    string print_lcs;
     while (ci != 0 && cj != 0)
     {
         if (a[ci - 1] == b[cj - 1])
         {
-            ans += a[ci - 1];
+            print_lcs += a[ci - 1];
             ci--;
             cj--;
         }
@@ -56,7 +66,8 @@ int main()
             break;
         }
     }
-    reverse(ans.begin(), ans.end());
-    cout << ans << endl;
+    reverse(print_lcs.begin(), print_lcs.end());
+    cout << print_lcs << endl;
+    cout << mx << endl;
     return 0;
 }

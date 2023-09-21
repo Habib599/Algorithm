@@ -13,7 +13,7 @@ ll fibo(ll n)
         return save[n];
     }
     ll ans1 = fibo(n - 1);
-    ll ans2 = fibo(n - 2);
+    ll ans2 = fibo (n - 2);
     save[n] = ans1 + ans2;
     return save[n];
 }

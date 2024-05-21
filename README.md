@@ -41,7 +41,7 @@
 <details>
 <summary>Week 5: 2D Array & Recursion</summary>
     <ul>
-        <li>2D Array</li>
+        3<li>2D Array</li>
         <li>Recursion</li>
         <li>Recursion Problem Solving</li>
     </ul>

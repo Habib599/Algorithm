@@ -52,18 +52,18 @@
 <details>
 <summary>Week 1: Basic Operators and OOP</summary>
     <ul>
-        <li>Basic Operators</li>
-        <li>Dynamic Memory Allocation</li>
-        <li>Class and Object</li>
+        <li>1.Basic Operators</li>
+        <li>2.Dynamic Memory Allocation</li>
+        <li>3.Class and Object</li>
     </ul>
 </details>
 
 <details>
 <summary>Week 2: String and OOP</summary>
     <ul>
-        <li>String</li>
-        <li>Class and String</li>
-        <li>Array of Objects</li>
+        <li>5.String</li>
+        <li>6.Class and String</li>
+        <li>7.Array of Objects</li>
     </ul>
 </details>
 

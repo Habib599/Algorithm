@@ -14,7 +14,7 @@ bool dfs(int node, int p=-1)
     {
         if(v==p) continue;
         if (visited[v]) return true;
-        cycleExits |= dfs(v,node);  
+        cycleExits |= dfs(v,node);
     }
     return cycleExits;
 }

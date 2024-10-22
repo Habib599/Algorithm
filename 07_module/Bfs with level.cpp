@@ -17,7 +17,7 @@ void bfs(int src)
     {
         int head = q.front();
         q.pop();
-        // cout <<"Node: "<< head << endl;
+        cout <<"Node "<< head <<"  "<< level[head]<<" level"<< endl;
         for (int node : adj_list[head]) 
         {
             if (visited[node] == true)  continue;
@@ -44,10 +44,10 @@ int main()
     
     bfs(1);
 
-    for (int i = 1; i <=n; i++)
-    {
-        cout<< "level of "<<i<<": "<< level[i]<<endl;
-    }
+    // for (int i = 1; i <=n; i++)
+    // {
+    //     cout<< "level of "<<i<<": "<< level[i]<<endl;
+    // }
     
     return 0;
 }

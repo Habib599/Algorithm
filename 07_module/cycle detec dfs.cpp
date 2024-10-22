@@ -7,16 +7,16 @@ bool visited[N];
 
 bool dfs(int node, int p=-1)
 {
-    bool cycleExits= false;
+    bool cycle= false;
     visited[node] = true;
     // cout << "node "<< node << endl;
     for (int v : adj[node]) 
     {
         if(v==p) continue;
         if (visited[v]) return true;
-        cycleExits |= dfs(v,node);
+        cycle |= dfs(v,node);
     }
-    return cycleExits;
+    return cycle;
 }
 int main() 
 {
@@ -29,11 +29,19 @@ int main()
         adj[node].push_back(v);
         adj[v].push_back(node);
     }
-    if(dfs(1))
+
+    bool iscycle=false;
+    for (int i = 1; i <=n; i++)
+    {
+        if(visited[i]) continue;
+        iscycle |= dfs(i);
+    }
+    if(iscycle)
     {
         cout << "cycle detected"<<endl;
     }
     else
-        cout << "no cycle detected"<<endl;
-    return 0;
+        cout << "no cycle"<<endl;
+
+return 0;
 }

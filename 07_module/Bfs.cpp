@@ -33,10 +33,10 @@ int main()
     cin >> n >> m;
     for (int i = 0;i < m;i++)
     {
-        int u, v;
-        cin >> u >> v;
-        adj_list[u].push_back(v);
-        adj_list[v].push_back(u);
+        int src, v;
+        cin >> src >> v;
+        adj_list[src].push_back(v);
+        adj_list[v].push_back(src);
     }
     
     bfs(1);

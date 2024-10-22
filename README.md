@@ -1,12 +1,18 @@
 ## Course 4: Algorithms
 
-Introduction to Algorithm                            Graph
+Introduction to Algorithm</summary>
     <ul>
-        <li>1. Algorithm Analysis                    5. Representation</li>
-        <li>2. Asymptotic Notation                   6. BFS</li>
-        <li>3. Merge sort                            7. DFS</li>
+        <li>1. Algorithm Analysis</li>
+        <li>2. Asymptotic Notation</li>
+        <li>3. Merge sort</li>
     </ul>
 
+Graph</summary>
+    <ul>
+        <li>5. Representation</li>
+        <li>6. BFS</li>
+        <li>7. DFS</li>
+    </ul>
 
 Shortest Path</summary>
     <ul>
@@ -21,12 +27,14 @@ Graph Variations</summary>
         <li>14. Minimum Spanning Tree</li>
         <li>15. Bellman Ford and Floyd Warshall</li>
     </ul>
+
 Dynamic Programming Classic</summary>
     <ul>
         <li>17. Fibonacci Series</li>
         <li>18. 0-1 Knapsack</li>
         <li>19. 0-1 Knapsack Variations</li>
     </ul>
+    
 Dynamic Programming Variations</summary>
     <ul>
         <li>Unbounded Knapsack</li>

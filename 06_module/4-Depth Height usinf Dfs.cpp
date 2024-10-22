@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 const int N = 1e5;
 int visited[N];
 vector<int> adj[N];
+
 int depth[N];
 int height[N];
 

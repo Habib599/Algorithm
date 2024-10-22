@@ -10,12 +10,9 @@ void dfs(int u)
     visited[u] = 1;
     for (int v : adj[u]) 
     {
-        if (visited[v] == 0)
-        {
-            dfs(v);
-        }
-    cout << "node "<< u << endl;
+        if (visited[v] == 0) dfs(v);
     }
+    cout << "node "<< u << endl;
 }
 int main() 
 {
@@ -26,7 +23,7 @@ int main()
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
-        // adj[v].push_back(u);
+        adj[v].push_back(u);
     }
     dfs(1);
     return 0;

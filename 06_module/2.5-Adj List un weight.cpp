@@ -2,7 +2,7 @@
 using namespace std;
 
 const int N= 1e3+5;
-vector<pair<int,int> >adj[N];
+vector<int>adj[N];
 
 int main()
 {
@@ -10,18 +10,17 @@ int main()
     cin >> n >>m;
     for (int i = 0; i < m; i++)
     {
-        int u,v, w;
-        cin >> u >> v >>w;
-        adj[u].push_back({v,w});
-        adj[v].push_back({u,w});
+        int u,v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
     }
     for (int i = 1; i <=n ; i++)
     {
         cout<< i<<": ";
         for (auto j:adj[i])
         {
-            cout<<"(" << j.first;
-            cout<< ","<< j.second<<") ";
+            cout<< j <<" ";
         }
         cout<<endl;
     }    

@@ -4,7 +4,7 @@ Introduction to Algorithm</summary>
     <ul>
         <li>1. Algorithm Analysis</li>
         <li>2. Asymptotic Notation</li>
-        <li>3. Divide and Conquer</li>
+        <li>3. Merge sort</li>
     </ul>
 
 Graph</summary>

@@ -1,18 +1,12 @@
 ## Course 4: Algorithms
 
-Introduction to Algorithm</summary>
+Introduction to Algorithm                            Graph
     <ul>
-        <li>1. Algorithm Analysis</li>
-        <li>2. Asymptotic Notation</li>
-        <li>3. Merge sort</li>
+        <li>1. Algorithm Analysis                    5. Representation</li>
+        <li>2. Asymptotic Notation                   6. BFS</li>
+        <li>3. Merge sort                            7. DFS</li>
     </ul>
 
-Graph</summary>
-    <ul>
-        <li>5. Representation</li>
-        <li>6. BFS</li>
-        <li>7. DFS</li>
-    </ul>
 
 Shortest Path</summary>
     <ul>

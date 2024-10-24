@@ -9,9 +9,9 @@ Introduction to Algorithm</summary>
 
 Graph</summary>
     <ul>
-        <li>5. Representation</li>
-        <li>6. BFS</li>
-        <li>7. DFS</li>
+        <li>5. Matrix and List </li>
+        <li>6. DFS</li>
+        <li>7. BFS</li>
     </ul>
 
 Shortest Path</summary>

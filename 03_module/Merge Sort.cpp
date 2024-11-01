@@ -6,25 +6,27 @@ int nums[N];
 
 void merge(int l, int r, int mid)
 {
-	int left_size = mid-l+1;
-	int L[left_size + 1];
+	//decleare part
+	int left_size = mid-l+1; //array size
+	int L[left_size + 1];//array
 
-	int right_size = r - mid;
-	int R[right_size + 1];
+	int right_size = r - mid;//array size
+	int R[right_size + 1]; //array
 
-	for(int i=l,j=0; i<=mid; i++,j++)
+	for(int i=l,j=0; i<=mid; i++,j++)//copy nuns to L
 		L[j] = nums[i];
 
-	for(int i=mid+1,j=0; i<=r; i++,j++)
+	for(int i=mid+1,j=0; i<=r; i++,j++)// copy nums to R
 		R[j] = nums[i];
 
 	L[left_size] = INT_MAX; //infinity
-	R[right_size] = INT_MAX;
+	R[right_size] = INT_MAX;// compare er jonno infinity
 
+	//two arry theke small number nums a boshabo
 	int lp=0,rp=0;
 	for(int i=l; i<=r; i++)
 	{
-		if(L[lp] <= R[rp])
+		if(L[lp] <= R[rp])// jeta choto seta age bosbe
 		{
 			nums[i] = L[lp];
 			lp++;
@@ -39,8 +41,7 @@ void merge(int l, int r, int mid)
 
 void mergesort(int l, int r)
 {
-	if(l==r)
-		return;
+	if(l==r) return;
 	int mid = (l+r)/2;
 	mergesort(l, mid);
 	mergesort(mid+1, r);

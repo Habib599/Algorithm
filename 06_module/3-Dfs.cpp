@@ -10,7 +10,7 @@ void dfs(int u)
     visited[u] = 1;
     for (int v : adj[u]) 
     {
-        if (visited[v] == 0) dfs(v);
+        if (!visited[v]) dfs(v);
     }
     cout << "node "<< u << endl;
 }

@@ -10,8 +10,8 @@ int main()
     cin >> n >>m;
     for (int i = 0; i < m; i++)
     {
-        int u,v, w;
-        cin >> u >> v >>w;
+        int u,v;
+        cin >> u >> v;
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
@@ -24,7 +24,6 @@ int main()
         }
         cout<<endl;
     }
-    
     
     return 0;
 }

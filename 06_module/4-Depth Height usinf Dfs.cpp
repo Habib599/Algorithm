@@ -11,13 +11,14 @@ int height[N];
 void dfs(int u)
 {
     visited[u] = 1;
-    // cout << "node "<< u << endl;
     for (int v : adj[u]) 
     {
-        if (visited[v] == 0)
+        if (!visited[v])
         {
             depth[v]=depth[u]+1;
+
             dfs(v);
+
             if(height[v]+1>height[u])
                 height[u]= height[v]+1;
         }

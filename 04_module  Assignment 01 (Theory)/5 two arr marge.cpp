@@ -12,7 +12,7 @@ void merge(int ar1[], int n, int ar2[],int m)
 	int lp=0,rp=0;
 	for(int i=0; i<n+m; i++)
 	{
-		if(ar1[lp] <= ar2[rp])
+		if(ar1[lp] < ar2[rp])
 		{
 			nums[i] = ar2[rp];
 			rp++;

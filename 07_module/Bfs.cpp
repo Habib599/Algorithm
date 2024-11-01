@@ -11,6 +11,8 @@ void bfs(int src)
     queue<int> q;
     q.push(src);
     visited[src] = true;
+
+    
     while (!q.empty())
     {
         int head = q.front();
@@ -18,10 +20,11 @@ void bfs(int src)
         cout <<"Node: "<< head << endl;
         for (int node : adj_list[head]) 
         {
-            if (visited[node] == true)  continue;
+            if (visited[node])  continue;
             
             q.push(node);
             visited[node] = true;
+            //level[node]= level[head]+1;
         }
     }
 

@@ -39,8 +39,7 @@ void merge(int l, int r, int mid)
 
 void mergesort(int l, int r)
 {
-	if(l==r)
-		return;
+	if(l==r) return;
 	int mid = (l+r)/2;
 	mergesort(l, mid);
 	mergesort(mid+1, r);

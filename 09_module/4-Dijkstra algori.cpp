@@ -20,21 +20,21 @@ void dijkstra(int src)
 
     while(!pq.empty())
     {
-        int u=pq.top().second;
+        int fnode=pq.top().second;
         pq.pop();
-        visited[u]=true;
+        visited[fnode]=true;
 
-        for(pii vpair: adj_list[u])
+        for(pii vpair: adj_list[fnode])
         {
-            int v=vpair.first;
+            int snode=vpair.first;
             int w= vpair.second;
 
-            if(visited[v]) continue;
+            if(visited[snode]) continue;
 
-            if(dist[u]+w < dist[v])
+            if(dist[snode] > dist[fnode]+w)
             {
-                dist[v]=dist[u]+w;
-                pq.push({dist[v],v});
+                dist[snode]=dist[fnode]+w;
+                pq.push({dist[snode],snode});
             }
         }
     }
@@ -45,21 +45,21 @@ int main()
     cin >> n >> m;
     for (int i = 0;i < m;i++)
     {
-        int u, v,w ;
-        cin >> u >> v>>w;
-        adj_list[u].push_back({v,w});
-        adj_list[v].push_back({u,w});
+        int fnode, snode,w ;
+        cin >> fnode >> snode>>w;
+        adj_list[fnode].push_back({snode,w});
+        adj_list[snode].push_back({fnode,w});
     }
     int s,d;
     cin>>s>>d;
     dijkstra(s);
     
-    // for (int i = 1; i <=n; i++)
-    // {
-    //     cout<<"distance of node "<<i<<": ";
+    for (int i = 1; i <=n; i++)
+    {
+        cout<<"distance of node "<<i<<": ";
 
-    //     cout<< dist[i]<< endl;
-    // }
+        cout<< dist[i]<< endl;
+    }
     cout<< dist[d]<< endl;
 
     return 0;

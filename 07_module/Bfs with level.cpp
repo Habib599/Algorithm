@@ -17,10 +17,10 @@ void bfs(int src)
     {
         int head = q.front();
         q.pop();
-        cout <<"Node "<< head <<"  "<< level[head]<<" level"<< endl;
+        cout <<"Node: "<< head <<"  "<< level[head]<<" level"<< endl;
         for (int node : adj_list[head]) 
         {
-            if (visited[node] == true)  continue;
+            if (visited[node])  continue;
             
             q.push(node);
             visited[node] = true;

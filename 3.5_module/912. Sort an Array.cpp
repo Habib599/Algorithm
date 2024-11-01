@@ -11,7 +11,9 @@ private:
                 temp.push_back(nums[mid++]);
             }else if(mid > r){
                 temp.push_back(nums[left++]);
-            }else if(nums[left] < nums[mid]){
+            }
+            
+            else if(nums[left] < nums[mid]){
                 temp.push_back(nums[left++]);
             }else{
                 temp.push_back(nums[mid++]);

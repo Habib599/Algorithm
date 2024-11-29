@@ -21,7 +21,7 @@ void bfs(int src)
         // cout <<"Node: "<< head << endl;
         for (int node : adj_list[head]) 
         {
-            if (visited[node] == true)  continue;
+            if (visited[node])  continue;
             
             q.push(node);
             visited[node] = true;

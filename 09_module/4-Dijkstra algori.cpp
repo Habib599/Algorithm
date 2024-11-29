@@ -20,21 +20,21 @@ void dijkstra(int src)
 
     while(!pq.empty())
     {
-        int fnode=pq.top().second;
+        int pnode=pq.top().second;
         pq.pop();
-        visited[fnode]=true;
+        visited[pnode]=true;
 
-        for(pii vpair: adj_list[fnode])
+        for(pii vpair: adj_list[pnode])
         {
-            int snode=vpair.first;
+            int cnode=vpair.first;
             int w= vpair.second;
 
-            if(visited[snode]) continue;
+            if(visited[cnode]) continue;
 
-            if(dist[snode] > dist[fnode]+w)
+            if(dist[cnode] > dist[pnode]+w)
             {
-                dist[snode]=dist[fnode]+w;
-                pq.push({dist[snode],snode});
+                dist[cnode]=dist[pnode]+w;
+                pq.push({dist[cnode],cnode});
             }
         }
     }
@@ -45,10 +45,10 @@ int main()
     cin >> n >> m;
     for (int i = 0;i < m;i++)
     {
-        int fnode, snode,w ;
-        cin >> fnode >> snode>>w;
-        adj_list[fnode].push_back({snode,w});
-        adj_list[snode].push_back({fnode,w});
+        int u, v,w ;
+        cin >> u >> v>>w;
+        adj_list[u].push_back({v,w});
+        adj_list[v].push_back({u,w});
     }
     int s,d;
     cin>>s>>d;

@@ -2,74 +2,45 @@
 using namespace std;
 
 const int N = 1e5;
-vector<int> adj_list[N];
+vector<int> adj[N];
 bool visited[N];
-bool visitedt[N];
+vector<int> components[N];
+int cc=0;
 
-void dfs(int u)
-{
-    visitedt[u] = 1;
-    cout << u <<" ";
-    for (int v : adj_list[u]) 
-    {
-        if (visitedt[v] == 0)
-        {
+void dfs(int s){
+    visited[s]=true;
+    components[cc].push_back(s);
+    for( int v: adj[s]){
+        if(!visited[v]) 
             dfs(v);
-        }
     }
 }
 
-void bfs(int src)
-{
-    queue<int> q;
-    q.push(src);
-    visited[src] = true;
-
-    while (!q.empty())
-    {
-        int head = q.front();
-        q.pop();
-        
-        for (int node : adj_list[head]) 
-        {
-            if (visited[node] == true)  continue;
-            
-            q.push(node);
-            visited[node] = true;
-        }
-    }
-
-}
-
-int main() 
-{
+int main() {
     int n, m;
     cin >> n >> m;
-    for (int i = 0;i < m;i++)
-    {
-        int u, v;
-        cin >> u >> v;
-        adj_list[u].push_back(v);
-        adj_list[v].push_back(u);
+    for (int i = 0;i < m;i++){
+        int s, v;
+        cin >> s >> v;
+        adj[s].push_back(v);
+        adj[v].push_back(s);
     }
-    queue<int>q;
-    int cc=0;
-    for (int i = 1; i <=n; i++)
-    {
-        if(visited[i]) continue;
-        q.push(i);
-        bfs(i);
-        cc++;
+    
+    for (int i = 1; i <=n; i++){
+        if(!visited[i]){
+            cc++;
+            dfs(i);
+        }
     }
     cout<<cc<<endl;
-    int j=1;
-    while (!q.empty()) 
-    {
-        cout <<"Component "<< j<<" : ";
-        dfs(q.front());
-        cout<<endl;
-        j++;
-        q.pop();
+    
+     // Print the components
+     for (int i = 1; i <= cc; i++) {
+        cout << "component " << i << ":";
+        for (int v : components[i]) {
+            cout << " " << v;
+        }
+        cout << endl;
     }
     return 0;
 }

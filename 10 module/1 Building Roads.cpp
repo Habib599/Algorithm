@@ -6,11 +6,9 @@ const int N = 1e5+7;
 vector<int> g[N];
 vector<bool> visited(N,false);
 
-void dfs(int u)
-{
+void dfs(int u){
 	visited[u] = true;
-	for(int v:g[u])
-	{
+	for(int v:g[u]){
 		if(visited[v]) continue;
 		dfs(v);
 	}
@@ -30,8 +28,7 @@ int main()
     }
 
     vector<int> leaders;
-    for(int i=1;i<=n;i++)
-    {
+    for(int i=1;i<=n;i++){
     	if(visited[i]) continue;
     	leaders.push_back(i);
     	dfs(i);
@@ -39,8 +36,7 @@ int main()
 
     cout << leaders.size()-1 << endl;
 
-    for(int i=1;i<leaders.size();i++)
-    {
+    for(int i=1;i<leaders.size();i++){
     	cout << leaders[i-1] << " " << leaders[i] << endl;
     }
     

@@ -2,46 +2,41 @@
 using namespace std;
 
 const int N = 1e3+5;
-vector<int> adj_list[N];
+vector<int> adj[N];
 bool visited[N];
 int level[N];
 int parent[N];
 
-void bfs(int src)
-{
+void bfs(int s){
     queue<int> q;
-    q.push(src);
-    visited[src] = true;
-    level[src]=0;
-    parent[src]=-1;
-    while (!q.empty())
-    {
-        int head = q.front();
+    q.push(s);
+    visited[s] = true;
+    level[s]=0;
+    parent[s]=-1;
+
+    while (!q.empty()){
+        int u = q.front();
         q.pop();
-        // cout <<"Node: "<< head << endl;
-        for (int node : adj_list[head]) 
-        {
-            if (visited[node])  continue;
+        // cout <<"Node: "<< u << endl;
+        for (int v : adj[u]) {
+            if (visited[v])  continue;
             
-            q.push(node);
-            visited[node] = true;
-            level[node]=level[head]+1;
-            parent[node]=head;
+            q.push(v);
+            visited[v] = true;
+            level[v]=level[u]+1;
+            parent[v]=u;
         }
     }
-
 }
 
-int main() 
-{
+int main() {
     int n, m;
     cin >> n >> m;
-    for (int i = 0;i < m;i++)
-    {
+    for (int i = 0;i < m;i++){
         int u, v;
         cin >> u >> v;
-        adj_list[u].push_back(v);
-        adj_list[v].push_back(u);
+        adj[u].push_back(v);
+        adj[v].push_back(u);
     }
     int s,d;
     cin >>s>>d;
@@ -54,16 +49,15 @@ int main()
     // }
     vector<int>path;
     int current=d;
-    while (current!=-1)
-    {
+    while (current!=-1){
         path.push_back(current);
         current=parent[current];
     }
+
     cout<<"path : ";
     reverse(path.begin(),path.end());
-    for(int node: path)
-    {
-        cout<< node<< " ";
+    for(int v: path){
+        cout<< v<< " ";
     }
 
     return 0;

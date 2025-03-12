@@ -7,7 +7,7 @@ int nums[N];
 void merge(int l, int r, int mid)
 {
 	//decleare part
-	int left_size = mid-l+1; //array size
+	int left_size = mid+1; //array size
 	int L[left_size + 1];//array
 
 	int right_size = r - mid;//array size

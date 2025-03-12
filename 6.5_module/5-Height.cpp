@@ -8,14 +8,11 @@ vector<int> adj[N];
 int depth[N];
 int height[N];
 
-void dfs(int u)
-{
+void dfs(int u){
     visited[u] = 1;
     // cout << "node "<< u << endl;
-    for (int v : adj[u]) 
-    {
-        if (visited[v] == 0)
-        {
+    for (int v : adj[u]) {
+        if (visited[v] == 0){
             //depth[v]=depth[u]+1;
             dfs(v);
             if(height[v]+1>height[u])
@@ -27,8 +24,7 @@ int main()
 {
     int n, m;
     cin >> n >> m;
-    for (int i = 0;i < m;i++)
-    {
+    for (int i = 0;i < m;i++) {
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
@@ -39,7 +35,6 @@ int main()
 
     dfs(1);
     cout<< "height of " << h <<" = "<<height[h]<<endl;
-    
     
     return 0;
 }

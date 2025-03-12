@@ -5,35 +5,29 @@ const int N = 1e5;
 vector<int> adj[N];
 bool visited[N];
 
-bool dfs(int node, int p=-1)
-{
-    bool cycleExits= false;
-    visited[node] = true;
-    // cout << "node "<< node << endl;
-    for (int v : adj[node]) 
-    {
-        if(v==p) continue;
-        if (visited[v]) return true;
-        cycleExits |= dfs(v,node);  
-    }
-    return cycleExits;
+bool dfs(int u, int p=-1){
+    visited[u] = true;
+    // cout << "u "<< u << endl;
+    for (int v : adj[u]) {
+        if(v == p) continue;
+        if (visited[v] || dfs(v, u)) return true;
+    }   
+    return false;
 }
-int main() 
-{
+
+int main() {
     int n, m;
     cin >> n >> m;
-    for (int i = 0;i < m;i++)
-    {
+    for (int i = 0;i < m;i++){
         int node, v;
         cin >> node >> v;
         adj[node].push_back(v);
         adj[v].push_back(node);
     }
-    if(dfs(1))
-    {
-        cout << "YES"<<endl;
-    }
-    else
-        cout << "NO"<<endl;
+
+    if(dfs(1)) cout << "YES"<<endl;
+    else cout << "NO"<<endl;
+
     return 0;
+
 }

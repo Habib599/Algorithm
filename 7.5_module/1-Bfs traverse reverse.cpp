@@ -2,49 +2,42 @@
 using namespace std;
 
 const int N = 1e5;
-vector<int> adj_list[N];
+vector<int> adj[N];
 bool visited[N];
 int level[N];
 
-void bfs(int src)
-{
+void bfs(int src){
     queue<int> q;
-    stack<int>s;
+    stack<int>st;
     q.push(src);
     visited[src] = true;
-    while (!q.empty())
-    {
-        int head = q.front();
+    
+    while (!q.empty()){
+        int u = q.front();
         q.pop();
-        // cout<< head <<" ";
-        s.push(head);
-        for (int node : adj_list[head]) 
-        {
-            if (visited[node] == true)  continue;
-            
-            q.push(node);
-            visited[node] = true;
+        // cout<< u <<" ";
+        st.push(u);
+        for (int v : adj[u]) {
+            if (!visited[v]){
+                visited[v] = true;
+                q.push(v);
+            }
         }
     }
-    while (!s.empty()) 
-    {
-        cout << s.top() << " ";
-        s.pop();
+    while (!st.empty()) {
+        cout << st.top() << " ";
+        st.pop();
     }
-
-
 }
 
-int main() 
-{
-    int n, m;
-    cin >> n >> m;
-    for (int i = 0;i < m;i++)
-    {
+int main() {
+    int n, e;
+    cin >> n >> e;
+    while(e--){
         int u, v;
         cin >> u >> v;
-        adj_list[u].push_back(v);
-        adj_list[v].push_back(u);
+        adj[u].push_back(v);
+        adj[v].push_back(u);
     }
     
     bfs(1);

@@ -5,11 +5,11 @@ const int N = 1e3 + 5;
 int adjmat[N][N];
 
 int main() {
-    int n, m;
-    cin >> n >> m;
+    int n, e;
+    cin >> n >> e;
 
     vector<vector<int>> adjList(n + 1); //2D vector
-    for (int i = 0; i < m; i++) {
+    while(e--){
         int u, v;
         cin >> u >> v;
         adjList[u].push_back(v);

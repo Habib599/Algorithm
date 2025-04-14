@@ -1,0 +1,1 @@
+{"name":"Local: lcs_print","url":"c:\\Users\\mdhab\\OneDrive\\Documents\\GitHub\\Algorithm\\26 module\\lcs_print.cpp","tests":[{"id":1743623461581,"input":"adegf\nabdef","output":"adef\r\n4\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\mdhab\\OneDrive\\Documents\\GitHub\\Algorithm\\26 module\\lcs_print.cpp","group":"local","local":true}

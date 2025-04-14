@@ -33,33 +33,21 @@ void dijkstra(int source)
         }
     }
 }
-int main()
-{
+int main(){
     int n,m;
     cin>>n>>m;
-    for(int i=0;i<m;i++)
-    {
+    while(m--){
         int u,v,w;
         cin>>u>>v>>w;
         adj[u].push_back({v,w});
     }
-    int s;
-    cin>>s;
+    int s,t;
+    cin>>s>>t;
     dijkstra(s);
-    int t;
-    cin>>t;
-    while(t--)
-    {
+    while(t--){
         long long int dnode,egw;
         cin>>dnode>>egw;
-        if(dist[dnode] <= egw)
-        {
-            cout<<"YES"<<endl;
-        }
-        else
-        {
-            cout<<"NO"<<endl;
-        }
+        cout << (dist[dnode] <= egw ? "YES" : "NO") << endl;
     }
     return 0;
 }

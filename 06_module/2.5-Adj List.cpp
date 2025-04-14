@@ -6,9 +6,9 @@ vector<int>adj[N];
 
 int main()
 {
-    int n,m;
-    cin >> n >>m;
-    for (int i = 0; i < m; i++){
+    int n,e;
+    cin >> n >>e;
+    while(e--){
         int u,v;
         cin >> u >> v;
         adj[u].push_back(v);

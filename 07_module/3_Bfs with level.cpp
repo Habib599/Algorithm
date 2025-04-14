@@ -27,9 +27,9 @@ void bfs(int s){
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    for (int i = 0;i < m;i++){
+    int n, e;
+    cin >> n >> e;
+    while(e--){
         int s, v;
         cin >> s >> v;
         adj_list[s].push_back(v);

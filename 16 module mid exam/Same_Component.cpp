@@ -1,24 +1,19 @@
 #include<bits/stdc++.h>
 #define pair pair<int,int>
 using namespace std;
+
 const int N = 1005;
 vector<pair> path = {{-1,0},{1,0},{0,-1},{0,1}};
 bool vis[N][N];
 char a[N][N];
 int n,m;
-bool isValid(int cI, int cJ)
-{
-    if(cI >= 0 && cI < n && cJ >= 0 && cJ < m)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+
+bool isValid(int cI, int cJ){
+
+    
+    return (cI >= 0 && cI < n && cJ >= 0 && cJ < m);
 }
-void bfs(int si, int sj)
-{
+void bfs(int si, int sj){
     queue<pair> q;
     q.push({si,sj});
     vis[si][sj] = true;
@@ -41,28 +36,17 @@ void bfs(int si, int sj)
         }
     }
 }
-int main()
-{
-    cin>>n>>m;
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<m;j++)
-        {
-            cin>>a[i][j];
-        }
-    }
-    int si,sj;
-    cin>>si>>sj;
-    bfs(si,sj);
-    int di,dj;
-    cin>>di>>dj;
-    if(vis[di][dj])
-    {
-        cout<<"YES"<<endl;
-    }
-    else
-    {
-        cout<<"NO"<<endl;
-    }
+
+int main() {
+    cin >> n >> m;
+    for (int i = 0; i < n; i++) 
+        for (int j = 0; j < m; j++) 
+            cin >> a[i][j];
+    
+    int si, sj, di, dj;
+    cin >> si >> sj >> di >> dj;
+    bfs(si, sj);
+    
+    cout << (vis[di][dj] ? "YES" : "NO") << endl;
     return 0;
 }

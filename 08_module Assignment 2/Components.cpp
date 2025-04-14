@@ -5,11 +5,11 @@ const int N = 1e3 + 5;
 vector<int> adj[N];
 bool visited[N];
 
-int dfs(int s) {
-    visited[s] = true;
+int dfs(int u) {
+    visited[u] = true;
     int node = 1;  
 
-    for (int v : adj[s]) {
+    for (int v : adj[u]) {
         if (!visited[v]) 
             node += dfs(v);
     }
@@ -17,10 +17,9 @@ int dfs(int s) {
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-
-    for (int i = 0; i < m; i++) {
+    int n, e;
+    cin >> n >> e;
+    while(e--){
         int a, b;
         cin >> a >> b;
         adj[a].push_back(b);
@@ -34,7 +33,6 @@ int main() {
             int cnode = dfs(i);
             if (cnode > 1) 
                 v.push_back(cnode);
-            
         }
     }
 

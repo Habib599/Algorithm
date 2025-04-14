@@ -26,9 +26,9 @@ void bfs(int s){
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    for (int i = 0; i < m; i++){
+    int n, e;
+    cin >> n >> e;
+    while(e--){
         int u, v;
         cin >> u >> v;
         adj_list[u].push_back(v);
@@ -43,7 +43,6 @@ int main() {
     for (int i = 0; i < n; i++){
         if (level[i] == 1)
             found++;
-        
     }
 
     cout << found<< endl;

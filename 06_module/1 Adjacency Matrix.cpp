@@ -5,9 +5,9 @@ const int N= 1e3+5;
 int adj[N][N];
 
 int main(){
-    int n,m;
-    cin >> n >>m;
-    for (int i = 0; i < m; i++){
+    int n,e;
+    cin >> n >>e;
+    while(e--){
         int u,v;
         cin >> u>> v;
         adj[u][v]=1;

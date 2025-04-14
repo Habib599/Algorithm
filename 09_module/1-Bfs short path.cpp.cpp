@@ -7,7 +7,7 @@ bool visited[N];
 int level[N];
 int parent[N];
 
-void bfs(int s){
+void bfs(int s){ //O(n+e)
     queue<int> q;
     q.push(s);
     visited[s] = true;
@@ -30,9 +30,9 @@ void bfs(int s){
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    for (int i = 0;i < m;i++){
+    int n, e;
+    cin >> n >> e;
+    while(e--){
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
@@ -42,16 +42,15 @@ int main() {
     cin >>s>>d;
     bfs(s);
     cout<<"Distance : "<< level[d]<< endl;
-    // for (int i = 1; i <=n; i++)
-    // {
+    // for (int i = 1; i <=n; i++){
     //     cout<<"parent of "<<i<<": "<<parent[i];
     //     cout<< endl;
     // }
     vector<int>path;
-    int current=d;
-    while (current!=-1){
-        path.push_back(current);
-        current=parent[current];
+    int x=d;
+    while (x!=-1){
+        path.push_back(x);
+        x=parent[x];
     }
 
     cout<<"path : ";

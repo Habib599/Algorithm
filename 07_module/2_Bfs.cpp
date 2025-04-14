@@ -4,7 +4,7 @@ using namespace std;
 const int N = 1e5;
 vector<int> adj_list[N];
 bool visited[N];
-int level[N];
+//int level[N];
 
 void bfs(int s){
     queue<int> q;
@@ -27,9 +27,9 @@ void bfs(int s){
 }
 
 int main(){
-    int n, m;
-    cin >> n >> m;
-    for (int i = 0;i < m;i++){
+    int n, e;
+    cin >> n >> e;
+    while(e--){
         int s, v;
         cin >> s >> v;
         adj_list[s].push_back(v);

@@ -7,7 +7,7 @@ const int INF = 1e9+7;
 //vector<pii> g[N];
 vector<pair<pii, int>> list_of_edges;
 int d[N][N];
-int n,m;
+int n,e;
 void print_mat(){
     for (int i = 1; i <= n; i++){
         for (int j = 1; j <= n; j++){
@@ -27,10 +27,10 @@ void dist_INF(){
 }
 
 int main(){
-    cin >> n >> m;
+    cin >> n >> e;
     dist_INF();
 
-    for (int i = 0;i < m;i++){
+    while(e--){
         int u, v, w;
         cin >> u >> v >> w;
         d[u][v] = w;

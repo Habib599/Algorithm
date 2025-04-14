@@ -5,7 +5,7 @@ typedef pair<int,int> pii;
 const int N = 1e5+7;
 const int INF = 1e9+7;
 vector<pii> g[N];
-vector<pair<pii, int>> list_of_edges;
+//vector<pair<pii, int>> list_of_edges;
 int d[N];
 int n,m;
 

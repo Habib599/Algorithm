@@ -17,9 +17,9 @@ void dfs(int s){
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    for (int i = 0;i < m;i++){
+    int n, e;
+    cin >> n >> e;
+    while(e--){
         int s, v;
         cin >> s >> v;
         adj[s].push_back(v);
